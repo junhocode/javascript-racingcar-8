@@ -12,13 +12,12 @@ class Race {
     }
 
     static #validateCars(cars) {
-        const names = cars.map(car => car.getName());
-        const namesSet = new Set(names);
+        const namesSet = new Set(cars);
 
-        if (names.length < 2) {
+        if (namesSet.length < 2) {
             throw new Error(ERROR_MESSAGES.NOT_ENOUGH_CARS);
         }
-        if (namesSet.size !== names.length) {
+        if (namesSet.size !== cars.length) {
             throw new Error(ERROR_MESSAGES.DUPLICATE_CAR);
         }
     }
