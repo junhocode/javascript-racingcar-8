@@ -1,7 +1,7 @@
-import InputView from '../views/InputView.js';
-import OutputView from '../views/OutputView.js';
-import Car from '../../models/Car.js';
-import Race from '../../models/Race.js';
+import InputView from '../view/inputView.js';
+import OutputView from '../view/outputView.js';
+import Car from '../service/models/Car.js';
+import Race from '../service/models/Race.js';
 
 class RaceController {
   async run() {

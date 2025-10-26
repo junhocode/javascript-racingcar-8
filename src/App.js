@@ -1,4 +1,4 @@
-import RaceController from './controllers/RaceController.js';
+import RaceController from "./controller/RaceController.js";
 
 class App {
   async run() {
