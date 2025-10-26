@@ -15,8 +15,8 @@ class Car {
         if (name.length > CONSTANTS.MAX_NAME_LENGTH) {
             throw new Error(ERROR_MESSAGES.EXCEEDS_MAX_LENGTH);
         }
-        if (name.trim().length === 0) {
-            throw new Error(ERROR_MESSAGES.EMPTY_NAME);
+        if (name.length < CONSTANTS.MIN_NAME_LENGTH) {
+            throw new Error(ERROR_MESSAGES.MIN_NAME_LENGTH);
         }
     }
 
