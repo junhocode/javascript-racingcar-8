@@ -25,6 +25,7 @@ class RaceController {
       
     } catch (error) {
       OutputView.printError(error);
+      throw error;
     }
   }
 }
