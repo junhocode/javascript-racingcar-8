@@ -22,7 +22,7 @@ class RaceController {
       const race = Race.create(cars, tryCount);
 
       OutputView.printResultHeader();
-      race.startRace();
+      race.start();
 
       const allRoundResults = race.formatResults();
       OutputView.printAllRoundResults(allRoundResults);

@@ -40,7 +40,7 @@ class Race {
     this.#resultByRound.push(currentRoundStates);
   }
 
-  startRace() {
+  start() {
     for (let i = 0; i < this.#tryCounts; i++) {
       this.#singleRound();
     }
