@@ -1,13 +1,13 @@
 import RaceController from '../src/controller/RaceController.js';
-import InputView from '../src/view/inputView.js';
-import OutputView from '../src/view/outputView.js';
+import InputView from '../src/view/InputView.js';
+import OutputView from '../src/view/OutputView.js';
 import CarParser from '../src/service/models/CarParser.js';
 import Race from '../src/service/models/Race.js';
 import Car from '../src/service/models/Car.js';
 import { ERROR_MESSAGES } from '../src/constants/messages.js';
 
-jest.mock('../src/view/inputView.js');
-jest.mock('../src/view/outputView.js');
+jest.mock('../src/view/InputView.js');
+jest.mock('../src/view/OutputView.js');
 jest.mock('../src/service/models/CarParser.js');
 jest.mock('../src/service/models/Race.js');
 jest.mock('../src/service/models/Car.js');

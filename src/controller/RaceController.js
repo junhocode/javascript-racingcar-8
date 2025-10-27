@@ -1,5 +1,5 @@
-import InputView from '../view/inputView.js';
-import OutputView from '../view/outputView.js';
+import InputView from '../view/InputView.js';
+import OutputView from '../view/OutputView.js';
 import Car from '../service/models/Car.js';
 import CarParser from '../service/models/CarParser.js';
 import Race from '../service/models/Race.js';
