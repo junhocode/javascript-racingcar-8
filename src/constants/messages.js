@@ -4,8 +4,7 @@ export const UI_MESSAGES = {
   GET_CARS: "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분) \n",
   GET_TRY_COUNTS: "시도할 회수는 몇회인가요? \n",
   RESULTS_HEADER: "\n실행 결과",
-  RESULTS:(results) => `${results}`,
-  WINNERS: (winners) => `최종 우승자 : ${winners}`
+  WINNERS: (winners) => `\n최종 우승자 : ${winners}`
 };
 
 export const ERROR_MESSAGES = {

@@ -51,16 +51,8 @@ class Race {
     }
   }
 
-  formatResults() {
-    const formatRound = (roundResult) =>
-      roundResult
-        .map((carState) => {
-          const positionDisplay = CONSTANTS.POSITION_MARK.repeat(carState.position);
-          return `${carState.name} : ${positionDisplay}`;
-        })
-        .join("\n");
-        
-    return this.#resultByRound.map(formatRound).join("\n\n");
+  get results() {
+    return this.#resultByRound;
   }
 
   findWinners() {    
@@ -69,7 +61,7 @@ class Race {
     const maxPosition = Math.max(...finalRoundResult.map(carState => carState.position));
     const winners = finalRoundResult.filter(carState => carState.position === maxPosition);
     
-    return winners.map((winnerState) => winnerState.name).join(", ");
+    return winners;
   }
 }
 

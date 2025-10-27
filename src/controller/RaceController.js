@@ -21,15 +21,14 @@ class RaceController {
 
       const race = Race.create(cars, tryCount);
 
-      OutputView.printResultHeader();
+      OutputView.printResultsHeader();
       race.start();
-
-      const allRoundResults = race.formatResults();
-      OutputView.printAllRoundResults(allRoundResults);
-
+      const results = race.results
       const winners = race.findWinners();
-      OutputView.printWinners(winners);
+
+      OutputView.printResults(results)
       
+      OutputView.printWinners(winners);
     } catch (error) {
       throw error;
     }
