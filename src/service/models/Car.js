@@ -3,12 +3,20 @@ import { ERROR_MESSAGES } from "../../constants/messages.js";
 import CONSTANTS from "../../constants/constants.js";
 
 class Car {
-    #name; 
-    #distance;
+    #name;
+    #position;
 
     constructor(name) {
         this.#name = name;
-        this.#distance = 0;
+        this.#position = 0;
+    }
+
+    get name() {
+        return this.#name;
+    }
+
+    get position() {
+        return this.#position;
     }
 
     static #validateName(name) {
@@ -27,16 +35,13 @@ class Car {
 
     #tryToMove() {
       const randomNumber = Random.pickNumberInRange(0,9);
-
-      if (randomNumber >= 4) this.#distance += 1;
+      if (randomNumber >= 4) {
+          this.#position += 1;
+      }
     }
 
     move() {
-        this.#tryToMove()
-
-        const name = this.#name;
-        const currentDistance = this.#distance;
-        return { name, currentDistance };
+        this.#tryToMove();
     }  
 }
 

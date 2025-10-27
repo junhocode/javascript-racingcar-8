@@ -13,12 +13,13 @@ class Race {
   }
 
   static #validateCars(cars) {
-    const namesSet = new Set(cars);
+    const names = cars.map(car => car.name);
+    const namesSet = new Set(names);
+
     if (cars.length < 2) {
       throw new Error(ERROR_MESSAGES.NOT_ENOUGH_CARS);
     }
     if (namesSet.size !== cars.length) {
-        console.log(namesSet.size, cars.length);
       throw new Error(ERROR_MESSAGES.DUPLICATE_CAR);
     }
   }
@@ -36,7 +37,11 @@ class Race {
   }
 
   #singleRound() {
-    const currentRoundStates = this.#cars.map(car => car.race());
+    this.#cars.forEach(car => car.move());
+    const currentRoundStates = this.#cars.map(car => ({
+      name: car.name,
+      position: car.position,
+    }));
     this.#resultByRound.push(currentRoundStates);
   }
 
@@ -49,18 +54,20 @@ class Race {
   formatResults() {
     const formatRound = (roundResult) =>
       roundResult
-        .map((car) => {
-          const distanceDisplay = CONSTANTS.DISTANCE_MARK.repeat(car.currentDistance);
-          return `${car.name} : ${distanceDisplay}`;
+        .map((carState) => {
+          const positionDisplay = CONSTANTS.DISTANCE_MARK.repeat(carState.position);
+          return `${carState.name} : ${positionDisplay}`;
         })
         .join("\n");
+        
     return this.#resultByRound.map(formatRound).join("\n\n");
   }
 
   findWinners() {    
     const finalRoundResult = this.#resultByRound[this.#resultByRound.length - 1];
-    const maxDistance = Math.max(...finalRoundResult.map(carState => carState.currentDistance));
-    const winners = finalRoundResult.filter(carState => carState.currentDistance === maxDistance);
+    
+    const maxPosition = Math.max(...finalRoundResult.map(carState => carState.position));
+    const winners = finalRoundResult.filter(carState => carState.position === maxPosition);
     
     return winners.map((winnerState) => winnerState.name).join(", ");
   }
