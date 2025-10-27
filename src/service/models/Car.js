@@ -1,4 +1,4 @@
-import { Random } from "@woowacourse/mission-utils";
+import { Console } from "@woowacourse/mission-utils";
 import { ERROR_MESSAGES } from "../../constants/messages.js";
 import CONSTANTS from "../../constants/constants.js";
 
@@ -34,7 +34,7 @@ class Car {
     }
 
     move() {
-      const randomNumber = Random.pickNumberInRange(0,9);
+      const randomNumber = Console.Random.pickNumberInRange(0,9);
       if (randomNumber >= 4) this.#position += 1;
     }  
 }
