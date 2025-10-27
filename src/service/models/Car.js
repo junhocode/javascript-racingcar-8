@@ -25,14 +25,14 @@ class Car {
         return new Car(name);
     }
 
-    #moveForward() {
+    #tryToMove() {
       const randomNumber = Random.pickNumberInRange(0,9);
 
       if (randomNumber >= 4) this.#distance += 1;
     }
 
-    race() {
-        this.#moveForward()
+    move() {
+        this.#tryToMove()
 
         const name = this.#name;
         const currentDistance = this.#distance;
