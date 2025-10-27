@@ -52,7 +52,11 @@ class Race {
   }
 
   get results() {
-    return this.#resultByRound;
+    return this.#resultByRound.map(roundResult => 
+      roundResult.map(carState => 
+        ({ ...carState })
+      )
+    );
   }
 
   findWinners() {    
@@ -61,7 +65,7 @@ class Race {
     const maxPosition = Math.max(...finalRoundResult.map(carState => carState.position));
     const winners = finalRoundResult.filter(carState => carState.position === maxPosition);
     
-    return winners;
+    return winners.map(winner => ({ ...winner }));
   }
 }
 
