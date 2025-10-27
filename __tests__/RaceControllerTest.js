@@ -1,5 +1,5 @@
 import RaceController from '../src/controller/RaceController.js';
-import InputView from '../src/view/inputView.js';
+import InputView from '../src/view/InputView.js';
 import OutputView from '../src/view/outputView.js';
 import CarParser from '../src/service/models/CarParser.js';
 import Race from '../src/service/models/Race.js';
