@@ -3,6 +3,7 @@ import OutputView from '../view/outputView.js';
 import Car from '../service/models/Car.js';
 import CarParser from '../service/models/CarParser.js';
 import Race from '../service/models/Race.js';
+import { ERROR_MESSAGES } from '../constants/messages.js';
 
 class RaceController {
   async run() {
@@ -12,7 +13,11 @@ class RaceController {
       const cars = carNames.map(name => Car.create(name));
 
       const tryCountInput = await InputView.getTryCount();
+
       const tryCount = Number(tryCountInput);
+      if (Number.isNaN(tryCount)) {
+        throw new Error(ERROR_MESSAGES.TRYCOUNT_IS_NAN);
+      }
 
       const race = Race.create(cars, tryCount);
 
