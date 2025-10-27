@@ -55,7 +55,7 @@ class Race {
     const formatRound = (roundResult) =>
       roundResult
         .map((carState) => {
-          const positionDisplay = CONSTANTS.DISTANCE_MARK.repeat(carState.position);
+          const positionDisplay = CONSTANTS.POSITION_MARK.repeat(carState.position);
           return `${carState.name} : ${positionDisplay}`;
         })
         .join("\n");
