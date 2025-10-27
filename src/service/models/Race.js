@@ -1,3 +1,4 @@
+import CONSTANTS from '../../constants/constants.js';
 import { ERROR_MESSAGES } from '../../constants/messages.js';
 
 class Race {
@@ -49,7 +50,7 @@ class Race {
     const formatRound = (roundResult) =>
       roundResult
         .map((car) => {
-          const distanceDisplay = "-".repeat(car.currentDistance);
+          const distanceDisplay = CONSTANTS.DISTANCE_MARK.repeat(car.currentDistance);
           return `${car.name} : ${distanceDisplay}`;
         })
         .join("\n");
