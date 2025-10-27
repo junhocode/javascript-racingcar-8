@@ -33,15 +33,9 @@ class Car {
         return new Car(name);
     }
 
-    #tryToMove() {
-      const randomNumber = Random.pickNumberInRange(0,9);
-      if (randomNumber >= 4) {
-          this.#position += 1;
-      }
-    }
-
     move() {
-        this.#tryToMove();
+      const randomNumber = Random.pickNumberInRange(0,9);
+      if (randomNumber >= 4) this.#position += 1;
     }  
 }
 
