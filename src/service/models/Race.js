@@ -64,7 +64,7 @@ class Race {
   }
 
   findWinners() {    
-    const finalRoundResult = this.#resultByRound[this.#resultByRound.length - 1];
+    const finalRoundResult = this.#resultByRound[this.#tryCounts - 1];
     
     const maxPosition = Math.max(...finalRoundResult.map(carState => carState.position));
     const winners = finalRoundResult.filter(carState => carState.position === maxPosition);
