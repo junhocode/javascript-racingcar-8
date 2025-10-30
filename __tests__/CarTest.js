@@ -22,7 +22,7 @@ describe('Car', () => {
   });
 
   describe('Car 기능 테스트', () => {
-    test('Car 이름 테스트', () => {
+    test('정상적인 이름으로 Car를 생성하면, 이름과 초기 위치(0)를 가진다', () => {
       // given
       const name = 'a';
       
@@ -34,55 +34,48 @@ describe('Car', () => {
       expect(car.position).toBe(0);
     });
 
-    test(`이름 최대 길이 초과`, () => {
-      // given
-      const longName = 'longname';
-      
-      // then
-      expect(() => {
-        // when
-        Car.create(longName);
-      }).toThrow(ERROR_MESSAGES.EXCEEDS_MAX_LENGTH);
-    });
-    
-    test(`이름 최소 길이 미만`, () => {
-      // given
-      const shortName = ''; 
-      
-      // then
-      expect(() => {
-        // when
-        Car.create(shortName);
-      }).toThrow(ERROR_MESSAGES.MIN_NAME_LENGTH);
-    });
+    // test.each를 사용한 이름 유효성 검사
+    const invalidNameCases = [
+      { name: 'longname', expectedError: ERROR_MESSAGES.EXCEEDS_MAX_LENGTH },
+      { name: '', expectedError: ERROR_MESSAGES.MIN_NAME_LENGTH },
+    ];
+
+    test.each(invalidNameCases)(
+      '유효하지 않은 이름($name)으로 Car를 생성하면 에러를 던진다',
+      ({ name, expectedError }) => {
+        // then
+        expect(() => {
+          // when
+          Car.create(name);
+        }).toThrow(expectedError);
+      }
+    );
   });
 
   describe('move()', () => {
-    test('move() true', () => {
-      // given
-      const car = Car.create('a');
-      mockRandoms([4]);
-      
-      // when
-      car.move();
+    const moveTestCases = [
+      { randomNumber: 4, expectedPosition: 1, description: '전진하는 경우' },
+      { randomNumber: 9, expectedPosition: 1, description: '전진하는 경우' },
+      { randomNumber: 3, expectedPosition: 0, description: '정지하는 경우' },
+      { randomNumber: 0, expectedPosition: 0, description: '정지하는 경우' },
+    ];
 
-      // then
-      expect(car.position).toBe(1);
-    });
+    test.each(moveTestCases)(
+      '무작위 값이 $randomNumber일 때 $description: 위치가 $expectedPosition이 되어야 한다',
+      ({ randomNumber, expectedPosition }) => {
+        // given
+        const car = Car.create('a');
+        mockRandoms([randomNumber]);
+        
+        // when
+        car.move();
 
-    test('move() false', () => {
-      // given
-      const car = Car.create('a');
-      mockRandoms([3]);
-      
-      // when
-      car.move();
+        // then
+        expect(car.position).toBe(expectedPosition);
+      }
+    );
 
-      // then
-      expect(car.position).toBe(0);
-    });
-
-    test('move() 누적', () => {
+    test('move()를 여러 번 호출하면 위치가 누적되어야 한다', () => {
       // given
       const car = Car.create('a');
       mockRandoms([5, 2, 8]);
