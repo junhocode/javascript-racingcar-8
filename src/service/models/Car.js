@@ -34,8 +34,8 @@ class Car {
     }
 
     move() {
-      const randomNumber = Random.pickNumberInRange(0,9);
-      if (randomNumber >= 4) this.#position += 1;
+      const randomNumber = Random.pickNumberInRange(CONSTANTS.RAMDOM_NUMBER_MIN,CONSTANTS.RAMDOM_NUMBER_MAX);
+      if (randomNumber >= CONSTANTS.RANDIM_NUMBER_THRESHOLD) this.#position += 1;
     }  
 }
 
