@@ -28,7 +28,9 @@ class Race {
     if (tryCount <= 0) {
       throw new Error(ERROR_MESSAGES.TRYCOUNT_IS_INVALID);
     }
-  }
+    if (!Number.isInteger(tryCount))
+      throw new Error(ERROR_MESSAGES.TRYCOUNT_IS_DECIMAL);
+    }
 
   static create(cars, tryCount) {
     this.#validateCars(cars);

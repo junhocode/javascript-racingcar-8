@@ -14,5 +14,6 @@ export const ERROR_MESSAGES = {
   NTE_MIN_LENGTH: `${CONSTANTS.ERROR_PREFIX} 참가자의 이름은 최소 ${CONSTANTS.MIN_NAME_LENGTH}자 이상이여야 합니다.`,
   TRYCOUNT_IS_NAN: `${CONSTANTS.ERROR_PREFIX} 시도 횟수는 숫자여야 합니다.`,
   TRYCOUNT_IS_INVALID: `${CONSTANTS.ERROR_PREFIX} 시도 횟수는 1회 이상이어야 합니다.`,
+  TRYCOUNT_IS_DECIMAL: `${CONSTANTS.ERROR_PREFIX} 시도 횟수는 정수여야 합니다.`,
   GLOBAL_ERROR: (error) => `${CONSTANTS.ERROR_PREFIX} ${error.message}`
 };
