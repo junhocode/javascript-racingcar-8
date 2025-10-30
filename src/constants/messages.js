@@ -8,11 +8,11 @@ export const UI_MESSAGES = {
 };
 
 export const ERROR_MESSAGES = {
-  NOT_ENOUGH_CARS: "[ERROR] 참가자는 두명 이상이여야 합니다.",
-  DUPLICATE_CAR: "[ERROR] 참가자는 동일한 이름을 가질 수 없습니다.",
-  EXCEEDS_MAX_LENGTH: `[ERROR] 참가자의 이름은 최대 ${CONSTANTS.MAX_NAME_LENGTH}자까지 입력할 수 있습니다.`,
-  NTE_MIN_LENGTH: `[ERROR] 참가자의 이름은 최소 ${CONSTANTS.MIN_NAME_LENGTH}자 이상이여야 합니다.`,
-  TRYCOUNT_IS_NAN: "[ERROR] 시도 횟수는 숫자여야 합니다.",
-  TRYCOUNT_IS_INVALID: "[ERROR] 시도 횟수는 1회 이상이어야 합니다.",
-  GLOBAL_ERROR: (error) => `[ERROR] ${error.message}`
+  NOT_ENOUGH_CARS: `${CONSTANTS.ERROR_PREFIX} 참가자는 두명 이상이여야 합니다.`,
+  DUPLICATE_CAR: `${CONSTANTS.ERROR_PREFIX} 참가자는 동일한 이름을 가질 수 없습니다.`,
+  EXCEEDS_MAX_LENGTH: `${CONSTANTS.ERROR_PREFIX} 참가자의 이름은 최대 ${CONSTANTS.MAX_NAME_LENGTH}자까지 입력할 수 있습니다.`,
+  NTE_MIN_LENGTH: `${CONSTANTS.ERROR_PREFIX} 참가자의 이름은 최소 ${CONSTANTS.MIN_NAME_LENGTH}자 이상이여야 합니다.`,
+  TRYCOUNT_IS_NAN: `${CONSTANTS.ERROR_PREFIX} 시도 횟수는 숫자여야 합니다.`,
+  TRYCOUNT_IS_INVALID: `${CONSTANTS.ERROR_PREFIX} 시도 횟수는 1회 이상이어야 합니다.`,
+  GLOBAL_ERROR: (error) => `${CONSTANTS.ERROR_PREFIX} ${error.message}`
 };
